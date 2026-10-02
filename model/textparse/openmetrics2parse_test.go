@@ -1138,27 +1138,27 @@ req_duration{job="api",env="prod"} {count:3,sum:6.0,bucket:[0.1:1,1.0:2,+Inf:3]}
 	exp := []parsedEntry{
 		{m: "req_duration", typ: model.MetricTypeHistogram},
 		{
-			m:    "req_duration_count\xffenv\xffprod\xffjob\xffapi",
+			m:    "req_duration_count\xffjob\xffapi\xffenv\xffprod",
 			v:    3,
 			lset: labels.FromStrings("__name__", "req_duration_count", "env", "prod", "job", "api"),
 		},
 		{
-			m:    "req_duration_sum\xffenv\xffprod\xffjob\xffapi",
+			m:    "req_duration_sum\xffjob\xffapi\xffenv\xffprod",
 			v:    6.0,
 			lset: labels.FromStrings("__name__", "req_duration_sum", "env", "prod", "job", "api"),
 		},
 		{
-			m:    "req_duration_bucket\xffenv\xffprod\xffjob\xffapi\xffle\xff0.1",
+			m:    "req_duration_bucket\xffjob\xffapi\xffenv\xffprod\xffle\xff0.1",
 			v:    1,
 			lset: labels.FromStrings("__name__", "req_duration_bucket", "env", "prod", "job", "api", "le", "0.1"),
 		},
 		{
-			m:    "req_duration_bucket\xffenv\xffprod\xffjob\xffapi\xffle\xff1.0",
+			m:    "req_duration_bucket\xffjob\xffapi\xffenv\xffprod\xffle\xff1.0",
 			v:    2,
 			lset: labels.FromStrings("__name__", "req_duration_bucket", "env", "prod", "job", "api", "le", "1.0"),
 		},
 		{
-			m:    "req_duration_bucket\xffenv\xffprod\xffjob\xffapi\xffle\xff+Inf",
+			m:    "req_duration_bucket\xffjob\xffapi\xffenv\xffprod\xffle\xff+Inf",
 			v:    3,
 			lset: labels.FromStrings("__name__", "req_duration_bucket", "env", "prod", "job", "api", "le", "+Inf"),
 		},
@@ -1190,7 +1190,7 @@ foo{"user.id"="x"} {count:1,sum:2.0,quantile:[0.5:1.0]}
 			lset: labels.FromStrings("__name__", "foo_sum", "user.id", "x"),
 		},
 		{
-			m:    "foo\xffquantile\xff0.5\xffuser.id\xffx",
+			m:    "foo\xffuser.id\xffx\xffquantile\xff0.5",
 			v:    1.0,
 			lset: labels.FromStrings("__name__", "foo", "quantile", "0.5", "user.id", "x"),
 		},
@@ -1513,17 +1513,17 @@ rpc_duration_seconds {count:10,sum:5.0,quantile:[0.5:1.0]}
 		{m: "rpc_duration_seconds", typ: model.MetricTypeSummary},
 		{m: "rpc_duration_seconds", unit: "seconds"},
 		{
-			m:    "rpc_duration_seconds_count\xff__type__\xffsummary\xff__unit__\xffseconds",
+			m:    "rpc_duration_seconds_count",
 			v:    10,
 			lset: labels.FromStrings("__name__", "rpc_duration_seconds_count", "__type__", "summary", "__unit__", "seconds"),
 		},
 		{
-			m:    "rpc_duration_seconds_sum\xff__type__\xffsummary\xff__unit__\xffseconds",
+			m:    "rpc_duration_seconds_sum",
 			v:    5.0,
 			lset: labels.FromStrings("__name__", "rpc_duration_seconds_sum", "__type__", "summary", "__unit__", "seconds"),
 		},
 		{
-			m:    "rpc_duration_seconds\xff__type__\xffsummary\xff__unit__\xffseconds\xffquantile\xff0.5",
+			m:    "rpc_duration_seconds\xffquantile\xff0.5",
 			v:    1.0,
 			lset: labels.FromStrings("__name__", "rpc_duration_seconds", "__type__", "summary", "__unit__", "seconds", "quantile", "0.5"),
 		},
@@ -1589,27 +1589,27 @@ http_request_duration_seconds {count:3,sum:6.0,bucket:[0.1:1,0.5:2,+Inf:3]}
 		{m: "http_request_duration_seconds", typ: model.MetricTypeHistogram},
 		{m: "http_request_duration_seconds", unit: "seconds"},
 		{
-			m:    "http_request_duration_seconds_count\xff__type__\xffhistogram\xff__unit__\xffseconds",
+			m:    "http_request_duration_seconds_count",
 			v:    3,
 			lset: labels.FromStrings("__name__", "http_request_duration_seconds_count", "__type__", "histogram", "__unit__", "seconds"),
 		},
 		{
-			m:    "http_request_duration_seconds_sum\xff__type__\xffhistogram\xff__unit__\xffseconds",
+			m:    "http_request_duration_seconds_sum",
 			v:    6.0,
 			lset: labels.FromStrings("__name__", "http_request_duration_seconds_sum", "__type__", "histogram", "__unit__", "seconds"),
 		},
 		{
-			m:    "http_request_duration_seconds_bucket\xff__type__\xffhistogram\xff__unit__\xffseconds\xffle\xff0.1",
+			m:    "http_request_duration_seconds_bucket\xffle\xff0.1",
 			v:    1,
 			lset: labels.FromStrings("__name__", "http_request_duration_seconds_bucket", "__type__", "histogram", "__unit__", "seconds", "le", "0.1"),
 		},
 		{
-			m:    "http_request_duration_seconds_bucket\xff__type__\xffhistogram\xff__unit__\xffseconds\xffle\xff0.5",
+			m:    "http_request_duration_seconds_bucket\xffle\xff0.5",
 			v:    2,
 			lset: labels.FromStrings("__name__", "http_request_duration_seconds_bucket", "__type__", "histogram", "__unit__", "seconds", "le", "0.5"),
 		},
 		{
-			m:    "http_request_duration_seconds_bucket\xff__type__\xffhistogram\xff__unit__\xffseconds\xffle\xff+Inf",
+			m:    "http_request_duration_seconds_bucket\xffle\xff+Inf",
 			v:    3,
 			lset: labels.FromStrings("__name__", "http_request_duration_seconds_bucket", "__type__", "histogram", "__unit__", "seconds", "le", "+Inf"),
 		},
@@ -1630,27 +1630,27 @@ response_size_bytes {gcount:4,gsum:1024.0,bucket:[100:1,500:3,+Inf:4]}
 		{m: "response_size_bytes", typ: model.MetricTypeGaugeHistogram},
 		{m: "response_size_bytes", unit: "bytes"},
 		{
-			m:    "response_size_bytes_gcount\xff__type__\xffgaugehistogram\xff__unit__\xffbytes",
+			m:    "response_size_bytes_gcount",
 			v:    4,
 			lset: labels.FromStrings("__name__", "response_size_bytes_gcount", "__type__", "gaugehistogram", "__unit__", "bytes"),
 		},
 		{
-			m:    "response_size_bytes_gsum\xff__type__\xffgaugehistogram\xff__unit__\xffbytes",
+			m:    "response_size_bytes_gsum",
 			v:    1024.0,
 			lset: labels.FromStrings("__name__", "response_size_bytes_gsum", "__type__", "gaugehistogram", "__unit__", "bytes"),
 		},
 		{
-			m:    "response_size_bytes_bucket\xff__type__\xffgaugehistogram\xff__unit__\xffbytes\xffle\xff100.0",
+			m:    "response_size_bytes_bucket\xffle\xff100.0",
 			v:    1,
 			lset: labels.FromStrings("__name__", "response_size_bytes_bucket", "__type__", "gaugehistogram", "__unit__", "bytes", "le", "100.0"),
 		},
 		{
-			m:    "response_size_bytes_bucket\xff__type__\xffgaugehistogram\xff__unit__\xffbytes\xffle\xff500.0",
+			m:    "response_size_bytes_bucket\xffle\xff500.0",
 			v:    3,
 			lset: labels.FromStrings("__name__", "response_size_bytes_bucket", "__type__", "gaugehistogram", "__unit__", "bytes", "le", "500.0"),
 		},
 		{
-			m:    "response_size_bytes_bucket\xff__type__\xffgaugehistogram\xff__unit__\xffbytes\xffle\xff+Inf",
+			m:    "response_size_bytes_bucket\xffle\xff+Inf",
 			v:    4,
 			lset: labels.FromStrings("__name__", "response_size_bytes_bucket", "__type__", "gaugehistogram", "__unit__", "bytes", "le", "+Inf"),
 		},
@@ -1888,7 +1888,7 @@ req_seconds{service="api"} {count:12,sum:5.5,schema:0,zero_threshold:0.001,zero_
 				lset: labels.FromStrings("__name__", "req_seconds_sum", "service", "api"),
 			},
 			{
-				m:    "req_seconds_bucket\xffle\xff+Inf\xffservice\xffapi",
+				m:    "req_seconds_bucket\xffservice\xffapi\xffle\xff+Inf",
 				v:    12,
 				t:    int64p(1700000000000),
 				lset: labels.FromStrings("__name__", "req_seconds_bucket", "le", "+Inf", "service", "api"),
